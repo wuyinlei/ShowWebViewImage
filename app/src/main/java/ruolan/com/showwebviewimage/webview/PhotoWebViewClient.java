@@ -1,4 +1,4 @@
-package ruolan.com.showwebviewimage;
+package ruolan.com.showwebviewimage.webview;
 
 import android.graphics.Bitmap;
 import android.webkit.WebView;
@@ -10,7 +10,7 @@ import android.webkit.WebViewClient;
  * @function
  */
 
-public class MyWebViewClient extends WebViewClient {
+public class PhotoWebViewClient extends WebViewClient {
 
     @Override
     public void onPageFinished(WebView view, String url) {

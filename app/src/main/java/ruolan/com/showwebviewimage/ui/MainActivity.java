@@ -1,9 +1,13 @@
-package ruolan.com.showwebviewimage;
+package ruolan.com.showwebviewimage.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
+
+import ruolan.com.showwebviewimage.webview.PhotoJavascriptInterface;
+import ruolan.com.showwebviewimage.webview.PhotoWebViewClient;
+import ruolan.com.showwebviewimage.R;
+import ruolan.com.showwebviewimage.utils.StringUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         mWebView.getSettings().setDatabaseEnabled(true);
         mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.loadDataWithBaseURL(null, info, "text/html", "utf-8", null);
-        mWebView.addJavascriptInterface(new MJavascriptInterface(this, imageUrls), "imagelistener");
-        mWebView.setWebViewClient(new MyWebViewClient());
+        mWebView.addJavascriptInterface(new PhotoJavascriptInterface(this, imageUrls), "imagelistener");
+        mWebView.setWebViewClient(new PhotoWebViewClient());
 
 
     }
