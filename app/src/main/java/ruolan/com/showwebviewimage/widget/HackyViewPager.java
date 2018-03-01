@@ -7,6 +7,8 @@ import android.view.MotionEvent;
 
 /**
  * Created by wuyinlei on 2018/3/1.
+ *
+ * @function
  */
 
 public class HackyViewPager extends ViewPager {

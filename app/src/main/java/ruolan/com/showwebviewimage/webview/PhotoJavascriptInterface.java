@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import ruolan.com.showwebviewimage.ui.ShowPhotoActivity;
 
@@ -17,9 +17,9 @@ import ruolan.com.showwebviewimage.ui.ShowPhotoActivity;
 public class PhotoJavascriptInterface {
 
     private Context context;
-    private String[] imageUrls;
+    private List imageUrls;
 
-    public PhotoJavascriptInterface(Context context, String[] imageUrls) {
+    public PhotoJavascriptInterface(Context context, List imageUrls) {
         this.context = context;
         this.imageUrls = imageUrls;
     }
@@ -28,17 +28,9 @@ public class PhotoJavascriptInterface {
     public void openImage(String img) {
         Intent intent = new Intent(context, ShowPhotoActivity.class);
         int position = 0;
-        //以下几行代码是为了获取点击的图片的position
-        for (int i = 0; i < imageUrls.length; i++) {
-            if (imageUrls[i].equals(img)) {
-                position = i;
-                break;
-            }
-        }
+        position = imageUrls.indexOf(img);
         intent.putExtra("position", position);
-        ArrayList<String> images = new ArrayList<>();
-        images.addAll(Arrays.asList(imageUrls));
-        intent.putStringArrayListExtra("image", images);
+        intent.putStringArrayListExtra("image", (ArrayList<String>) imageUrls);
         context.startActivity(intent);
     }
 
